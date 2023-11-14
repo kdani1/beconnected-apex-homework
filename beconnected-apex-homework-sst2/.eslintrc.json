@@ -1,0 +1,18 @@
+{
+  "extends": ["eslint:recommended", "prettier", "plugin:prettier/recommended"],
+  "parser": "@typescript-eslint/parser",
+
+  "plugins": ["@typescript-eslint/eslint-plugin", "prettier"],
+  "parserOptions": {
+    "project": "./**/tsconfig.json"
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}

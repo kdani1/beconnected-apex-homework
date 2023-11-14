@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "include": ["stacks", "scripts", "vitest.config.ts", "sst.config.ts"],
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+  },
+}

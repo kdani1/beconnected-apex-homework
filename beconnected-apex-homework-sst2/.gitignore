@@ -1,0 +1,20 @@
+# dependencies
+node_modules
+
+# sst
+.sst
+.build
+
+# misc
+.DS_Store
+
+# local env files
+.env*.local
+.env
+
+.idea
+.idea/*
+
+yarn-error.log
+.eslintcache
+ngrok.log

@@ -1,0 +1,15 @@
+{
+  "name": "@beconnected/services",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/uuid": "^8.3.4",
+    "aws-sdk": "^2.1456.0",
+    "mockdate": "^3.0.5"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.102"
+  }
+}
