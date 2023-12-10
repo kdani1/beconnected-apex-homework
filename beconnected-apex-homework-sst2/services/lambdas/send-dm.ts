@@ -17,8 +17,8 @@ const sendDirectMessageToUser = async (recordBody: SendDmMessageBody) => {
     recordBody.uploadLink
   )}`
 
-  const messageHeader = `, it is time to share your moment.`
-  const message = `Upload your moment: ${makeShortLinkText(appUrl, 'here.')}`
+  const messageHeader = `, it is time to share your moment. Hurry up! ⏳`
+  const message = `Upload your moment --> ${makeShortLinkText(appUrl, '📸')}`
 
   await sendDmMessage({ ...recordBody, message, messageHeader })
 }

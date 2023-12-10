@@ -16,6 +16,9 @@ export const Loading: FC<LoadingProps> = () => {
       zIndex="100"
     >
       <Spinner color="white" size="lg" />
+      <Box color="white" fontSize="3xl" fontWeight="bold" user-select="none">
+        BeConnected.
+      </Box>
     </Box>
   )
 }

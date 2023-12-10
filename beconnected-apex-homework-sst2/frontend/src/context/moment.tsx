@@ -20,6 +20,7 @@ const initialMomentState = {
   facingMode: FacingModes.environment,
   environmentImage: '',
   userImage: '',
+  mergedImage: new Blob(),
 }
 
 type MomentContextState = {
@@ -44,13 +45,11 @@ export const MomentContextProvider: React.FC<{ children: ReactNode }> = ({
 
   useEffect(() => {
     if (appState.step === TakePhotoSteps.Uploading) {
-      postImage()
-        .then(() => {
-          dispatchAppStateAction({ type: TakePhotoActions.UPLOAD_SUCCESS })
-        })
-        .catch((error: Error) => {
-          console.error(error)
-        })
+      if (postImage(appState.mergedImage, s3UploadUrl) == undefined) {
+        dispatchAppStateAction({ type: TakePhotoActions.UPLOAD_FAILED })
+      } else {
+        dispatchAppStateAction({ type: TakePhotoActions.UPLOAD_SUCCESS })
+      }
     }
   }, [appState.step])
 

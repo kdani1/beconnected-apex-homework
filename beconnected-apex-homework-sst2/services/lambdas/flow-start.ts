@@ -9,9 +9,9 @@ import { Config } from 'sst/node/config'
 
 export const handler: SQSHandler = async (event) => {
   const clients = getClients()
-
   for (const record of event.Records) {
     const { nextDate } = JSON.parse(record.body) as FlowStartMessageBody
+    console.log('nextDate: ' + nextDate)
     await sendFlowStartMessage(nextDate, clients)
   }
 }

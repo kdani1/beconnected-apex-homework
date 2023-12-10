@@ -15,6 +15,13 @@ export interface CreateMomentMessageBody {
   clientChannelId: string
 }
 
+export interface CreateUploadMessageBody {
+  clientName: string
+  clientSlackSecret: string
+  clientChannelId: string
+  image: string
+}
+
 export type ChannelUsersMessageBody = {
   nextDate: Date
   clientName: string
