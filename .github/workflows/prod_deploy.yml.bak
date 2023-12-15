@@ -28,7 +28,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: 'eu-central-1'
+        aws-region: 'your-aws-region' # Replace with your AWS region
 
     - name: Deploy to Production
       run: pnpm sst deploy --stage prod
