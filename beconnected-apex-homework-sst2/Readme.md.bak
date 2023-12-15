@@ -1,5 +1,5 @@
 # CHANGELOG:
-TEST CHANGE.
+TEST CHANGE
 # Entree: Allow user to retake photo
 Done, user can retake a photo on the review page by clicking on the retake button
 
