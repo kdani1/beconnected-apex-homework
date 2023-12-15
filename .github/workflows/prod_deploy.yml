@@ -1,0 +1,24 @@
+name: Production Deployment
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Environment (Example)
+      run: # Add commands to set up your environment
+
+    - name: Build (Example)
+      run: npm run build # Replace with your project's build command
+
+    - name: Deploy to Production (Example)
+      run: # Add your deployment commands here
+      env:
+        # Set environment variables needed for deployment, e.g.:
+        # DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
