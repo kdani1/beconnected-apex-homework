@@ -7,28 +7,36 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: beconnected-apex-homework-sst2
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2 # Using a pre-built action
+    - uses: actions/checkout@v2
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2 # Using a pre-built action
+      uses: actions/setup-node@v1
       with:
-        node-version: '18'
-        cache: 'npm'
+        node-version: '14'
 
     - name: Install dependencies
-      run: npm install # Running a command
+      run: |
+        cd beconnected-apex-homework-sst2
+        npm install
 
     - name: Lint Code
-      run: npm run lint # Running a command
+      run: |
+        cd beconnected-apex-homework-sst2
+        npm run lint
 
     - name: Type Check
-      run: npm run typecheck # Running a command
+      run: |
+        cd beconnected-apex-homework-sst2
+        npm run typecheck
 
     - name: Run Tests
-      run: npm run test # Running a command
+      run: |
+        cd beconnected-apex-homework-sst2
+        npm run test
+
+    - name: Additional Setup for AWS/S3/Slack
+      run: |
+        # Add any additional setup commands here
+        echo "Setup for AWS, S3, and Slack interactions"
