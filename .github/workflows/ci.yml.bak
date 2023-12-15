@@ -14,27 +14,27 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '14'
+        node-version: '18.18.2''
 
     - name: Install dependencies
       run: |
-            cd beconnected-apex-homework-sst2
-            npm install
+        cd beconnected-apex-homework-sst2
+        npm install
 
     - name: Lint Code
-            run: |
-            cd beconnected-apex-homework-sst2
-            npm run lint
+      run: |
+        cd beconnected-apex-homework-sst2
+        npm run lint
 
     - name: Type Check
       run: |
-            cd beconnected-apex-homework-sst2
-            npm run typecheck
+        cd beconnected-apex-homework-sst2
+        npm run typecheck
 
     - name: Run Tests
       run: |
-            cd beconnected-apex-homework-sst2
-            npm run test
+        cd beconnected-apex-homework-sst2
+        npm run test
 
     - name: Set up AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
