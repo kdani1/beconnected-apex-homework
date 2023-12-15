@@ -31,6 +31,9 @@ jobs:
         aws-region: 'eu-central-1'
 
     - name: Deploy to Production
-      run: pnpm sst deploy --stage prod
+      run: |
+        cd beconnected-apex-homework-sst2
+        pnpm sst deploy --stage prod
+
 
     # Optionally, include additional steps for notifications, logging, etc.
