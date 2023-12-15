@@ -22,13 +22,19 @@ jobs:
             npm install
 
     - name: Lint Code
-      run: npm run lint
+            run: |
+            cd beconnected-apex-homework-sst2
+            npm run lint
 
     - name: Type Check
-      run: npm run typecheck
+      run: |
+            cd beconnected-apex-homework-sst2
+            npm run typecheck
 
     - name: Run Tests
-      run: npm run test
+      run: |
+            cd beconnected-apex-homework-sst2
+            npm run test
 
     - name: Set up AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
