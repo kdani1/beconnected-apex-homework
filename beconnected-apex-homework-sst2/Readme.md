@@ -19,6 +19,7 @@ Added Rocket Button on success page to go to slack page or app if in smartphone.
 Added checking for initial camera permissions (because if the camera was not allowed initially, it wouldn't work without reload and after enabling camera it wouldn't reload automatically at least in chrome based broswers, now it does. 
 //TESTED AND WORKED AS EXPECTED on win 10 (Chrome, Firefox, Edge) on Android 12, 13 (Chrome, Firefox, Edge, Brave) 
 //DOES NOT WORKED VERY WELL with Safari (Same as originally) at least until you enable the camera permission in the settings, or reload a few times
+Removed the dual camera check
 
 ## Entree: PO's manual testing request
 Done, need to set up a new user group (not role) called PO and you need to put the PO in there and then on every starting of the backend it will display an api link in the console, and if the user group has been created and the PO is in the user group it will send the api url in a pm message on slack need to restart if the PO was't added to the user group
@@ -27,18 +28,9 @@ Done, need to set up a new user group (not role) called PO and you need to put t
 Done, s3 upload event driven lambda function - services/lambdas/upload-to-slack.ts
 Basic functionality: 
 - invocation up on s3 upload events
-- gets the uploaded image
-- creates a new private channel every day if it doesn't exist already
-- archives the previous days channels
-- invites the user to the private channel who uploaded the image
-- if the user is not already a member, then uploads the image
-EXTRA: Also displays how long did the user wait to upload the image from the notification
-Sends a message to the public channel to let everyone know when an image is uploaded
+- gets the uploaded image from s3 and sends it as a reply to the daily thread, tags the user in the text
 
-IMPORTANT: Additional Scopes: groups:write.invites, groups:read, groups:write,
-PS: I know that it says use the available scopes only, but i just feel like that this makes it a lot more like bereal, because the images can only be seen by those who upload as well that day.
-
-//TODO: Dont let anyone write in the private daily channel
+IMPORTANT: Additional Scopes: NONE || BASIC SCOPES: `channels:read, chat:write, im:write, users:read, channels:manage`
 
 #### Entree: Improve local development
 Concurrent start:

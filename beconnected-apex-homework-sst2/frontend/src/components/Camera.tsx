@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState, useEffect } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import Webcam from 'react-webcam'
 import { Button, Flex } from '@chakra-ui/react'
 import { MomentContext } from '../context/moment'
@@ -10,27 +10,9 @@ export const Camera: React.FC = () => {
   const { appState, dispatchAppStateAction } = useContext(MomentContext)
   const { step, facingMode } = appState
   const [isVisible, setIsVisible] = useState(true)
-  const [multipleCameras, setMultipleCameras] = useState(false)
-
   const displayLoadingOverlay = [TakePhotoSteps.SwapInitialize].includes(
     appState.step
   )
-
-  useEffect(() => {
-    const checkMultipleCameras = async () => {
-      try {
-        const devices = await navigator.mediaDevices.enumerateDevices()
-        const videoDevices = devices.filter(
-          (device) => device.kind === 'videoinput'
-        )
-        setMultipleCameras(videoDevices.length > 1)
-      } catch (error) {
-        console.error('Error checking multiple cameras:', error)
-      }
-    }
-
-    checkMultipleCameras()
-  }, [])
 
   const isApple = /iPhone|iPad|iPod/i.test(navigator.userAgent)
   const isAndroid = /Android/i.test(navigator.userAgent)
@@ -97,9 +79,7 @@ export const Camera: React.FC = () => {
   }
   const capture = () => {
     captureEnv()
-    if (multipleCameras) {
-      captureUser()
-    }
+    captureUser()
   }
   const captureUser = () => {
     setIsVisible(false)
