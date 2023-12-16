@@ -35,5 +35,12 @@ jobs:
         cd beconnected-apex-homework-sst2
         pnpm sst deploy --stage prod
 
+    - name: Wait for 2 minutes
+      run: sleep 120
+
+    - name: Destroy Deployed Resources
+      run: |
+        cd beconnected-apex-homework-sst2
+        pnpm sst remove --stage prod
 
     # Optionally, include additional steps for notifications, logging, etc.
