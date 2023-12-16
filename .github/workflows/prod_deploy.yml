@@ -30,6 +30,12 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: 'eu-central-1'
 
+    - name: Set Slack Secrets
+      run: |
+        npx sst secrets set SLACK_BOT_TOKEN ${{ secrets.SLACK_BOT_TOKEN }}
+        npx sst secrets set SLACK_SIGNING_SECRET ${{ secrets.SLACK_SIGNING_SECRET }}
+        npx sst secrets set SLACK_CHANNEL_ID ${{ secrets.SLACK_CHANNEL_ID }}
+
     - name: Deploy to Production
       run: |
         cd beconnected-apex-homework-sst2
