@@ -33,9 +33,9 @@ jobs:
     - name: Set Slack Secrets
       run: |
         cd beconnected-apex-homework-sst2
-        npx sst secrets set SLACK_BOT_TOKEN ${{ secrets.SLACK_BOT_TOKEN }}
-        npx sst secrets set SLACK_SIGNING_SECRET ${{ secrets.SLACK_SIGNING_SECRET }}
-        npx sst secrets set SLACK_CHANNEL_ID ${{ secrets.SLACK_CHANNEL_ID }}
+        npx sst secrets set SLACK_BOT_TOKEN ${{ secrets.SLACK_BOT_TOKEN }} --stage prod
+        npx sst secrets set SLACK_SIGNING_SECRET ${{ secrets.SLACK_SIGNING_SECRET }} --stage prod
+        npx sst secrets set SLACK_CHANNEL_ID ${{ secrets.SLACK_CHANNEL_ID }} --stage prod
 
     - name: Deploy to Production
       run: |
