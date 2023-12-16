@@ -18,7 +18,7 @@ Added BeConnected text to Loading, Camera, Review, Success, and Failed pages.
 Added Rocket Button on success page to go to slack page or app if in smartphone.
 Added checking for initial camera permissions (because if the camera was not allowed initially, it wouldn't work without reload and after enabling camera it wouldn't reload automatically at least in chrome based broswers, now it does. 
 //TESTED AND WORKED AS EXPECTED on win 10 (Chrome, Firefox, Edge) on Android 12, 13 (Chrome, Firefox, Edge, Brave) 
-//DOES NOT WORKED VERY WELL with Safari (Same as originally) at least until you enable the camera permission in the settings, or reload a few times
+//WORKED with Safari but need to enable camera permission and then take a possibly black photo and the click retake, after that its good. 
 Removed the dual camera check
 
 ## Entree: PO's manual testing request
@@ -32,9 +32,17 @@ Basic functionality:
 
 IMPORTANT: Additional Scopes: NONE || BASIC SCOPES: `channels:read, chat:write, im:write, users:read, channels:manage`
 
+## Dessert: Event Bridge
+lambda function is invoked by s3 upload events - services/lambdas/upload-to-slack.ts
+
+### Entree: Basic pipeline checks
+Done, on every Pr we run github/workflows/ci.yml
+
+### Main: Prod deploy
+Done, every time we merge to main, we run github/workflows/prod_deploy.yml
+
 #### Entree: Improve local development
 Concurrent start:
-- Run `pnpm install --save-dev concurrently` to install dependencies.
 - Run `pnpm start:all` to start all from one console with one command
 
 
